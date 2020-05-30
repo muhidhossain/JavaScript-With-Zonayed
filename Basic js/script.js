@@ -62,9 +62,9 @@ if (myName === 'Karim') {
  var weekDay = 'Friday';
 
  switch(weekDay){
-     case 'Saturday':
-         console.log('Saturday!, Today is closed');
-         break;
+    case 'Saturday':
+        console.log('Saturday!, Today is closed');
+        break;
     case 'Sunday':
         console.log('It is Sunday, normal working day');
         break;
@@ -171,3 +171,85 @@ var arrObj = ['Zonayed', {name: 'Rafiq', Age: 21, job: 'Student'}, 'Bangladesh']
 // accessing item inside object of an array
 console.log(arrObj[1].name);
 
+
+// function declaration
+function funcName(){
+    console.log('Hello I am from the function');
+}
+var funcName = function(){
+    console.log('Hello I am from the function');
+}
+// calling a function
+console.log(funcName());
+
+// adding two number with a function
+function sumMachine(a, b){
+    var sum = a + b;
+    return sum;
+}
+console.log(sumMachine(2, 2));
+console.log(sumMachine(4, 4));
+
+// passing a function as argument through another function
+function callMyName(name, callback){
+    var myAge = 20;
+    callback(myAge);
+    console.log('Is it interesting? Yes it is Mr. ' + name);
+}
+function hello(age){
+    console.log('I am passed through argument and my age is: ' + age);
+}
+console.log(callMyName('Muhid Hossain', hello));
+
+// returning a function from another function
+function welcomeMsg(name){
+    console.log('Welcome Mr. ' + name);
+    return function(menu){
+        console.log('Do you like ' + menu + ' Mr. ' + name);
+    }
+}
+console.log(welcomeMsg('Muhid Hossain')('Coffee'));
+
+// execution context
+var a = 10
+console.log(window.a);
+if (a === window.a) {
+    console.log(true);
+}
+
+//execution stack
+var name = 'Hossain';
+function first(){
+    var welcome = 'Hello ';
+    second();
+    console.log(welcome + name);
+}
+function second() {
+    var welcome2 = 'Hi! ';
+    third();
+    console.log(welcome2 + name);
+}
+function third() {
+    var welcome3 = 'Hey! ';
+    console.log(welcome3 + name);
+}
+console.log(first());
+
+// (hoisting) calling a function before declaration
+console.log(aFunc());
+function aFunc() {
+    var a = 10;
+    var b = 20;
+    var sum = a + b;
+    console.log('Sum: ' + sum);
+}
+
+// but if we call a function expression before declaration it will show error
+// console.log(name());
+// var name = function(){
+//     console.log('My name is Muhid Hossain');
+// }
+
+console.log('Value: ' + x);
+var x = 10;
+console.log('Value: ' + x);
