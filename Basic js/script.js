@@ -253,3 +253,60 @@ function aFunc() {
 console.log('Value: ' + x);
 var x = 10;
 console.log('Value: ' + x);
+
+// local scope (we can not access the local variable from outside the function)
+function localScope(){
+    var local = 'I am local to my own function';
+    console.log(local);
+}
+console.log(localScope());
+
+// global scope (we can access global variable from anywhere)
+var globalVar = 'I am a Global Variable';
+
+function globalScope(){
+    console.log('Inside a Function: ' + globalVar);
+}
+console.log(globalScope());
+console.log('Outside: ' + globalVar);
+
+// lexical scoping (relation between a parent and child function)
+function parentFunction() {
+    var a = 6;
+    function childFunction() {
+        var b = 4;
+        console.log('Sum: ' + (a + b));
+    }
+    childFunction()
+}
+console.log(parentFunction());
+
+// closer
+function closersDemo(){
+    var x = 10;
+    return function(){
+        var y = 20;
+        console.log('Sum: ' + (x + y));
+    }
+}
+console.log(closersDemo()());
+// the function can be assigned as a variable
+var aVAr = closersDemo();
+var total = aVAr();
+console.log(total);
+// we also can pass arguments
+function aParentFunc(a){
+    return function(b) {
+        console.log('Sum: ' + (a + b));
+    }
+}
+console.log(aParentFunc(6)(4));
+// and we also can do like this
+var aParentVar = aParentFunc(6);
+var aTotal = aParentVar(4);
+console.log(aTotal);
+
+// Immediately Invoked Function Expression (IIFE)
+(function aDemoFunc() {
+    console.log('Hello World!');
+})();
