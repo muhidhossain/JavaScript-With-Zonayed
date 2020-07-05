@@ -209,3 +209,26 @@ var num = new Number(10);
 console.dir(num);
 var bool = new Boolean(true);
 console.dir(bool);
+
+// function constructor and new keyword
+var Person = function(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+}
+var samir = new Person("Samir Hossain", 22, "Student");
+console.log(samir.name);
+console.log(samir.age);
+console.log(samir.job);
+
+// constructor with method
+var Personwithmethod = function(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+    this.dateOfBarth = function() {
+        console.log(this.name + " is born in " + (2020 - this.age));
+    }
+}
+var samirwithmethod = new Personwithmethod("Samir Hossain", 22, "Student");
+console.log(samirwithmethod.dateOfBarth());
