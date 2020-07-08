@@ -232,3 +232,33 @@ var Personwithmethod = function(name, age, job) {
 }
 var samirwithmethod = new Personwithmethod("Samir Hossain", 22, "Student");
 console.log(samirwithmethod.dateOfBarth());
+
+// Inheritance
+// property based inheritance
+var  PersonOnly = function(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+}
+PersonOnly.prototype.dateOfBirth = function() {
+    console.log(this.name + " born in " + (2020 - this.age));
+}
+console.log(PersonOnly.prototype);
+var zawad = new PersonOnly("Zawad Ahmed", 1, "Child");
+console.log(zawad.dateOfBirth());
+
+// constructor inheritance
+var Person1 = function(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+}
+var Teacher = function(name, age, job, subject) {
+    Person1.call(this, name, age, job);
+    this.subject = subject;
+}
+var kamaljeet = new Teacher("Kamaljeet Saini", 53, "Teacher", "CSE");
+console.log(kamaljeet.name);
+console.log(kamaljeet.age);
+console.log(kamaljeet.job);
+console.log(kamaljeet.subject);
