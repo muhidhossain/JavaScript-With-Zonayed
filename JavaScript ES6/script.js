@@ -57,3 +57,55 @@ console.log(rpt.repeat(5));
 
 // others
 console.log(`I always want to say ${"Alhamdulillah ".repeat(5)}!`);
+
+// arrow function and lexical this keyword
+// ES5
+var aFunc = function() {
+    console.log("A Demo ES5 Function Expression");
+}
+console.log(aFunc());
+// ES6 arrow function
+const aFunc6 = () => console.log("A Demo ES6 Arrow Function");
+console.log(aFunc6());
+// automatic return
+const dob = [1996, 1986, 2017, 1989];
+const currentAge5 = dob.map(function(oneDob) {
+    return 2020 - oneDob;
+})
+console.log(currentAge5);
+const currentAge6 = dob.map(oneDob => 2020 - oneDob);
+console.log(currentAge6);
+// multiple argument
+const currentAge62 = dob.map((oneDob, index) => `${index}: ${2020 - oneDob}`);
+console.log(currentAge62);
+// multiple line
+const currentAge622 = dob.map(oneDob => {
+    const age = 2020 - oneDob;
+    return age;
+})
+console.log(currentAge622);
+
+// lexical this keyword
+const lex5 = {
+    aFunc: function() {
+        console.log(this);
+        return function() {
+            console.log(this);
+        }
+    }
+}
+console.log(lex5.aFunc()());
+const lex6 = {
+    aFunc: () => {
+        console.log(this);
+        return () => console.log(this);
+    }
+}
+console.log(lex6.aFunc()());
+const lex56 = {
+    aFunc: function() {
+        console.log(this);
+        return () => console.log(this);
+    }
+}
+console.log(lex56.aFunc()());
