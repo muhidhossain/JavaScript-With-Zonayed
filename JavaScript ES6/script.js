@@ -16,13 +16,13 @@ console.log("Now my name is: " + a6);
 
 // difference between var and let
 var i = 13;
-for(var i = 0; i < 5; i++) {
+for (var i = 0; i < 5; i++) {
     console.log(i);
 }
 console.log("Value: " + i);
 
 let i6 = 13;
-for(let i6 = 0; i6 < 5; i6++) {
+for (let i6 = 0; i6 < 5; i6++) {
     console.log(i6);
 }
 console.log("Value: " + i6);
@@ -35,8 +35,8 @@ var name = "Muhid Hossain",
     work = "Student";
 console.log("My name is " + name + " and I\'m " + age + " years old! Currently I\'m a " + work);
 const name6 = "Muhid Hossain",
-      age6 = 22,
-      work6 = "Student";
+    age6 = 22,
+    work6 = "Student";
 console.log(`My name is ${name6} and I\'m ${age6} years old! Currently I\'m a ${work6}`);
 
 // startsWith method
@@ -60,7 +60,7 @@ console.log(`I always want to say ${"Alhamdulillah ".repeat(5)}!`);
 
 // arrow function and lexical this keyword
 // ES5
-var aFunc = function() {
+var aFunc = function () {
     console.log("A Demo ES5 Function Expression");
 }
 console.log(aFunc());
@@ -69,7 +69,7 @@ const aFunc6 = () => console.log("A Demo ES6 Arrow Function");
 console.log(aFunc6());
 // automatic return
 const dob = [1996, 1986, 2017, 1989];
-const currentAge5 = dob.map(function(oneDob) {
+const currentAge5 = dob.map(function (oneDob) {
     return 2020 - oneDob;
 })
 console.log(currentAge5);
@@ -87,9 +87,9 @@ console.log(currentAge622);
 
 // lexical this keyword
 const lex5 = {
-    aFunc: function() {
+    aFunc: function () {
         console.log(this);
-        return function() {
+        return function () {
             console.log(this);
         }
     }
@@ -103,9 +103,59 @@ const lex6 = {
 }
 console.log(lex6.aFunc()());
 const lex56 = {
-    aFunc: function() {
+    aFunc: function () {
         console.log(this);
         return () => console.log(this);
     }
 }
 console.log(lex56.aFunc()());
+
+// destructuring
+const hossain = ["Muhid Hossain", 22, "Student"];
+var name = hossain[0];
+var age = hossain[1];
+var profession = hossain[2];
+console.log(name);
+console.log(age);
+console.log(profession);
+
+const [name16, age16, profession16] = hossain;
+
+console.log(name16);
+console.log(age16);
+console.log(profession16);
+
+var hossainObj = {
+    nameObj: "Muhid Hossain",
+    ageObj: 22,
+    professionObj: "Student"
+};
+
+var nameObj5 = hossainObj.nameObj;
+var ageObj5 = hossainObj.ageObj;
+var professionObj5 = hossainObj.professionObj;
+
+console.log(nameObj5);
+console.log(ageObj5);
+console.log(professionObj5);
+
+const { nameObj, ageObj, professionObj } = hossainObj;
+
+console.log(nameObj);
+console.log(ageObj);
+console.log(professionObj);
+
+const { nameObj: nameObj6, ageObj: ageObj6, professionObj: professionObj6 } = hossainObj;
+
+console.log(nameObj6);
+
+var comObj = {
+    anotherObj: {
+        anotherNewObj: {
+            title: "JavaScript ES6"
+        }
+    }
+};
+
+const { anotherObj: { anotherNewObj: { title } } } = comObj;
+console.log(title);
