@@ -159,3 +159,21 @@ var comObj = {
 
 const { anotherObj: { anotherNewObj: { title } } } = comObj;
 console.log(title);
+
+// rest parameter
+function arguments6(...anyName) {
+    for (let i = 0; i < anyName.length; i++) {
+        console.log("Argument passed " + anyName[i]);
+    }
+}
+console.log(arguments6("Bangladesh", "india", "Sri-Lanka"));
+console.log(arguments6('Cricket', 'Football', 'Volleyball', 'Kabadi', 'Kutkut'));
+
+// rest parameter with arrow function
+const argumentsArr6 = (...anyName) => {
+    for (let i = 0; i < anyName.length; i++) {
+        console.log("Argument passed: " + anyName[i]);
+    }
+}
+
+console.log(argumentsArr6("Bangladesh", "India", "Sri-Lanka"));
