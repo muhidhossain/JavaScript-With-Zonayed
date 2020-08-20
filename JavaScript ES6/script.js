@@ -177,3 +177,43 @@ const argumentsArr6 = (...anyName) => {
 }
 
 console.log(argumentsArr6("Bangladesh", "India", "Sri-Lanka"));
+
+// default parameter
+function defaultParams6(name= "Muhid Hossain", age = 22) {
+    console.log("My name is " + name + " and I am " + age + " years old!");
+}
+console.log(defaultParams6());
+console.log(defaultParams6("Muhid", 20));
+
+// default parameter with function constructor
+function FunctionConst6(name = "Muhid Hossain", age = 22) {
+    this.name = name;
+    this.age = age;
+}
+// var muhid6 = new FunctionConst6();
+var muhid6 = new FunctionConst6("Muhid", 20)
+console.log(muhid6.name);
+console.log(muhid6.age);
+
+// map
+// creating new map
+const zawad = new Map();
+zawad.set("fullName", "Zawad Ahmed");
+console.log(zawad.get("fullName"));
+console.log(zawad.has("fullName"));
+zawad.set("toBeRemoved", "willBeRemoved");
+console.log(zawad.has("toBeRemoved"));
+zawad.delete("toBeRemoved");
+console.log(zawad.has("toBeRemoved"));
+zawad.clear();
+console.log(zawad);
+
+const favourite = new Map();
+favourite.set("name", "Muhid Hossain");
+favourite.set("job", "student");
+favourite.set("color", "blue");
+favourite.set("os", "windows");
+favourite.set("mobiles", "android");
+console.log(favourite);
+console.log(favourite.size);
+favourite.forEach((value, key) => console.log(`Key is: ${key} and the value is: ${value}`));
