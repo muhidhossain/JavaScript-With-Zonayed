@@ -217,3 +217,129 @@ favourite.set("mobiles", "android");
 console.log(favourite);
 console.log(favourite.size);
 favourite.forEach((value, key) => console.log(`Key is: ${key} and the value is: ${value}`));
+
+
+// class
+var Child5 = function(name, dob) {
+    this.name = name;
+    this.dob = dob;
+}
+var robiul = new Child5("Robiul Islam", 2000);
+console.log(robiul.name);
+console.log(robiul.dob);
+Child5.prototype.currentAge = function() {
+    console.log(this.name + " is " + (2020-this.dob) + " years old!");
+}
+console.log(robiul.currentAge());
+
+class Child6 {
+    constructor(name, dob) {
+        this.name = name;
+        this.dob = dob;
+    }
+
+    currentAge() {
+        console.log(`${this.name} is ${2020 - this.dob} years old!`);
+    }
+}
+
+const robiul6 = new Child6('Robiul Islam', 2000);
+
+console.log(robiul6.name);
+console.log(robiul.dob);
+
+robiul6.currentAge();
+
+var Person5 = function(name, age, job) {
+    this.name = name;
+    this.age = age;
+    this.job = job;
+}
+
+Person5.prototype.dateOfBirth = function() {
+    console.log(this.name + ' born in ' + (2020 - this.age));
+}
+
+var robiul5 = new Person5('Robiul Islam', 20, 'Child');
+
+robiul5.dateOfBirth();
+
+class Person6 {
+    constructor(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+    }
+    dateOfBirth() {
+        console.log(`${this.name} is born in ${2020 - this.age}`);
+    }
+}
+
+const robi6 = new Person6('Robiul Islam', 20, 'Child');
+
+robi6.dateOfBirth();
+
+// class and inheritance
+class PersonClassDemo {
+    constructor(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.dateOfBirth = () => {
+            console.log(`${this.name} is born in ${2020 - this.age}`);
+        }
+    }
+}
+
+class TeacherClassDemo {
+    constructor(name, age, job, dateOfBirth, subject) {
+        this.name = name;
+        this.age = age;
+        this.jbo = job;
+        this.subject = subject;
+        this.dateOfBirth = dateOfBirth;
+    }
+}
+
+class PersonClass {
+    constructor(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+    }
+}
+
+class TeacherClass extends PersonClass {
+    constructor(name, age, job, subject) {
+        super(name, age, job);
+        this.subject = subject;
+    }
+}
+
+const ourSir = new TeacherClass('Shafiq Sir', 46, 'Assistant Teacher', 'Physics');
+
+console.log(ourSir.name);
+console.log(ourSir.age);
+console.log(ourSir.job);
+console.log(ourSir.subject);
+
+class PersonClassMeth {
+    constructor(name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+    }
+    dateOfBirth() {
+        console.log(`${this.name} born in ${2020 - this.age}`);
+    }
+}
+
+class TeacherClassMeth extends PersonClassMeth {
+    constructor(name, age, job, subject) {
+        super(name, age, job);
+        this.subject = subject;
+    }
+}
+
+const ourSirMeth = new TeacherClassMeth('Shafiq Sir', 46, 'Assistant Teacher', 'Physics');
+ourSirMeth.dateOfBirth();
